@@ -18,5 +18,8 @@
   "homepage": "https://github.com/phpadminer/GV-UI#readme",
   "dependencies": {
     "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
   }
 }
