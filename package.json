@@ -1,8 +1,8 @@
 {
   "name": "gv-ui-test",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "这是一个基于Vue的UI框架",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev-test": "npx parcel watch test/* --no-cache & npx karma start",
     "test": "npx parcel build test/* --no-cache --no-minify && npx karma start --single-run"
