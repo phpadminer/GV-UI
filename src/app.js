@@ -73,7 +73,7 @@ const spy = chai.spy(() => {
             iconPosition: "right"
         }
     });
-    vm.$mount('#test');
+    vm.$mount();
     vm.$on('click', spy);
     const button = vm.$el;
     button.click();
