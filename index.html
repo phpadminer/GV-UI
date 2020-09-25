@@ -35,14 +35,23 @@
 </head>
 <body>
 <div id="app">
-    <gv-button icon="setting" icon-position="right" :loading="loading" >
+    <gv-button icon="setting" icon-position="right" :loading="loading">
         提交
     </gv-button>
     <gv-button icon="download" :loading="loading">
         下载
     </gv-button>
-    <gv-icon name="loading"></gv-icon>
-    <gv-icon name="loading"></gv-icon>
+    <gv-group-button>
+        <gv-button icon="left">
+            上一页
+        </gv-button>
+        <gv-button>
+            更多
+        </gv-button>
+        <gv-button icon="right" icon-position="right">
+            下一页
+        </gv-button>
+    </gv-group-button>
 </div>
 <script src="./src/app.js"></script>
 <script src="//at.alicdn.com/t/font_2096188_7yvkicqf8q3.js"></script>
