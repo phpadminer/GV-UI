@@ -30,6 +30,7 @@
             &:first-child {
                 border-top-left-radius: var(--border-radius);
                 border-bottom-left-radius: var(--border-radius);
+                margin-left: 0;
             }
 
             &:last-child {
