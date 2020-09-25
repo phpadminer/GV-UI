@@ -1,5 +1,5 @@
 <template>
-    <button class="gv-button" :class="{[`icon-${iconPosition}`]:true}">
+    <button class="gv-button" :class="{[`icon-${iconPosition}`]:true}" @click="$emit('click')">
         <gv-icon :name="icon" v-if="icon && !loading"></gv-icon>
         <gv-icon class="loading" name="loading" v-if="loading"></gv-icon>
         <div class="content">
@@ -29,9 +29,7 @@
         components:{
             "gv-icon":Icon
         },
-        mounted() {
-            console.log(this.$el.querySelector('.content'));
-        }
+
     };
 </script>
 <style lang="scss">
