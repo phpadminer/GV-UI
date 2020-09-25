@@ -1,14 +1,14 @@
 <template>
-    <button class="gv-button" :class="{'icon-default':true,[`icon-${iconPosition}`]:true}">
-        <svg class="icon" v-if="icon">
-            <use :xlink:href="`#gv-i-${icon}`"></use>
-        </svg>
+    <button class="gv-button" :class="{[`icon-${iconPosition}`]:true}">
+        <gv-icon :name="icon" v-if="icon && !loading"></gv-icon>
+        <gv-icon class="loading" name="loading" v-if="loading"></gv-icon>
         <div class="content">
             <slot></slot>
         </div>
     </button>
 </template>
 <script>
+    import Icon from "./icon"
     export default {
         props: {
             icon: {
@@ -20,16 +20,30 @@
                 validator: function (value) {
                     return ['left', 'right'].indexOf(value) > -1;
                 }
+            },
+            loading:{
+                type:Boolean,
+                default:false
             }
+        },
+        components:{
+            "gv-icon":Icon
+        },
+        mounted() {
+            console.log(this.$el.querySelector('.content'));
         }
     };
 </script>
 <style lang="scss">
-    .icon {
-        width: 1em;
-        height: 1em;
-    }
 
+    @keyframes spin {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
     .gv-button {
         font-size: var(--font-size);
         height: var(--button-height);
@@ -40,41 +54,20 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
-
-        &:hover {
-            border-color: var(--border-color-hover);
+        vertical-align: middle;//解决多个按钮内联的时候高度不一致bug
+        &:hover {border-color: var(--border-color-hover);}
+        &:active {background-color: var(--button-active-bg);}
+        &:focus {outline: none;}
+        &.icon-left {
+            > .content {order: 2}
+            > .icon {order: 1;margin-right: 0.3em;margin-left: 0;}
         }
-
-        &:active {
-            background-color: var(--button-active-bg);
-        }
-
-        &:focus {
-            outline: none;
-        }
-
-        &.icon-default, &.icon-left {
-            > .content {
-                order: 2
-            }
-
-            > .icon {
-                order: 1;
-                margin-right: 0.3em;
-                margin-left: 0;
-            }
-        }
-
         &.icon-right {
-            > .content {
-                order: 1
-            }
-
-            > .icon {
-                order: 2;
-                margin-right: 0;
-                margin-left: 0.3em;
-            }
+            > .content {order: 1}
+            > .icon {order: 2;margin-right: 0;margin-left: 0.3em;}
+        }
+        .loading{
+            animation: spin 1s infinite;
         }
 
     }

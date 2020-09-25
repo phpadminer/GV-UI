@@ -1,7 +1,13 @@
 import Vue from "vue";
-import button from "./button";
-
-Vue.component('gv-button', button);
+import Button from "./button";
+import Icon from "./icon";
+Vue.component('gv-button', Button);
+Vue.component('gv-icon', Icon);
 new Vue({
-    el: "#app"
+    el: "#app",
+    data(){
+        return{
+            loading:true,
+        }
+    }
 });

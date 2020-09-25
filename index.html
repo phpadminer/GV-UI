@@ -7,23 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GV-UI button</title>
     <style>
-        *{
-            margin:0;
+        * {
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body{
+
+        body {
             margin: 20px;
         }
-        :root{
-            --button-height:32px;
-            --font-size:14px;
-            --button-bg:white;
-            --button-active-bg:#eee;
+
+        :root {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
             --border-radius: 4px;
-            --color:#999;
-            --border-color:#999;
-            --border-color-hover:#666;
+            --color: #999;
+            --border-color: #999;
+            --border-color-hover: #666;
         }
 
     </style>
@@ -33,11 +35,16 @@
 </head>
 <body>
 <div id="app">
-    <gv-button icon="setting" icon-position="left">
+    <gv-button icon="setting" icon-position="right" :loading="loading">
         提交
     </gv-button>
+    <gv-button icon="download" :loading="loading">
+        下载
+    </gv-button>
+    <gv-icon name="loading"></gv-icon>
+    <gv-icon name="loading"></gv-icon>
 </div>
 <script src="./src/app.js"></script>
-<script src="//at.alicdn.com/t/font_2096188_qdpmbowppyk.js"></script>
+<script src="//at.alicdn.com/t/font_2096188_7yvkicqf8q3.js"></script>
 </body>
 </html>
