@@ -3,6 +3,7 @@ import Button from "./button";
 import Icon from "./icon";
 import GroupButton from "./group-button";
 import chai from 'chai';
+import spies from 'chai-spies';
 
 Vue.component('gv-button', Button);
 Vue.component('gv-icon', Icon);
@@ -15,7 +16,10 @@ new Vue({
         };
     }
 });
+chai.use(spies);
 const expect = chai.expect;
+const spy = chai.spy(() => {
+});
 // 单元测试
 // 测试图标
 {
@@ -65,12 +69,13 @@ const expect = chai.expect;
     const vm = new Constructor({
         propsData: {
             icon: "correct",
-            loading:true,
-            iconPosition:"right"
+            loading: true,
+            iconPosition: "right"
         }
     });
     vm.$mount('#test');
-    vm.$on('click',function(){
-        console.log(11);
-    })
+    vm.$on('click', spy);
+    const button = vm.$el;
+    button.click();
+    expect(spy).to.have.been.called();
 }
