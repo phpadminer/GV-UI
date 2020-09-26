@@ -1,22 +1,23 @@
 {
-  "name": "gv-ui-test",
-  "version": "0.0.3",
+  "name": "reef-ui-test",
+  "version": "0.0.1",
   "description": "这是一个基于Vue的UI框架",
   "main": "dist/index.js",
   "scripts": {
+    "start": "npx parcel index.html --no-cache",
     "dev-test": "npx parcel watch test/* --no-cache & npx karma start",
     "test": "npx parcel build test/* --no-cache --no-minify && npx karma start --single-run"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phpadminer/GV-UI.git"
+    "url": "git+https://github.com/phpadminer/reef-UI.git"
   },
   "author": "ghosthao",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/phpadminer/GV-UI/issues"
+    "url": "https://github.com/phpadminer/reef-UI/issues"
   },
-  "homepage": "https://github.com/phpadminer/GV-UI#readme",
+  "homepage": "https://github.com/phpadminer/reef-UI#readme",
   "dependencies": {
     "vue": "^2.6.12",
     "vue-hot-reload-api": "^2.3.4"
