@@ -20,10 +20,16 @@
             --button-height: 32px;
             --font-size: 14px;
             --button-bg: white;
+            --button-bg-primary: #1ABC9C;
+            --button-bg-warning: #F1C40F;
+            --button-bg-danger: #E74C3C;
+            --button-bg-success: #2ECC71;
+            --button-bg-info: #3498db;
+            --button-bg-default: #bdc3c7;
             --button-active-bg: #eee;
             --border-radius: 4px;
-            --color: #999;
-            --border-color: #999;
+            --color: #2C3E50;
+            --border-color: #2C3E50;
             --border-color-hover:#33cc99;
         }
 
@@ -37,12 +43,76 @@
 <body>
 <div id="app">
     <div class="group">
-        <reef-button icon="setting" icon-position="right" :loading="loading">
-            提交
+        <reef-button type="primary">
+            primary
         </reef-button>
-        <reef-button icon="correct" >
-            下载
+        <reef-button type="warning">
+            warning
         </reef-button>
+        <reef-button type="danger">
+            danger
+        </reef-button>
+        <reef-button type="success">
+            success
+        </reef-button>
+        <reef-button type="info">
+            info
+        </reef-button>
+        <reef-button type="default">
+            default
+        </reef-button>
+        <reef-button type="normal">
+            normal
+        </reef-button>
+
+    </div>
+    <div class="group">
+        <reef-button type="primary" icon="setting" icon-position="right" :loading="loading">
+            primary
+        </reef-button>
+        <reef-button type="warning" icon="setting" icon-position="right" :loading="loading">
+            warning
+        </reef-button>
+        <reef-button type="danger" icon="setting" icon-position="right" :loading="loading">
+            danger
+        </reef-button>
+        <reef-button type="success" icon="setting" icon-position="right" :loading="loading">
+            success
+        </reef-button>
+        <reef-button type="info" icon="setting" icon-position="right" :loading="loading">
+            info
+        </reef-button>
+        <reef-button type="default" icon="setting" icon-position="right" :loading="loading">
+            default
+        </reef-button>
+        <reef-button  icon="setting" icon-position="right" :loading="loading">
+            normal
+        </reef-button>
+
+    </div>
+    <div class="group">
+        <reef-button type="primary" icon="setting" icon-position="left" :loading="loading">
+            primary
+        </reef-button>
+        <reef-button type="warning" icon="setting" icon-position="left" :loading="loading">
+            warning
+        </reef-button>
+        <reef-button type="danger" icon="setting" icon-position="left" :loading="loading">
+            danger
+        </reef-button>
+        <reef-button type="success" icon="setting" icon-position="left" :loading="loading">
+            success
+        </reef-button>
+        <reef-button type="info" icon="setting" icon-position="left" :loading="loading">
+            info
+        </reef-button>
+        <reef-button type="default" icon="setting" icon-position="left" :loading="loading">
+            default
+        </reef-button>
+        <reef-button  icon="setting" icon-position="left" :loading="loading">
+            normal
+        </reef-button>
+
     </div>
    <div class="group">
        <reef-group-button>

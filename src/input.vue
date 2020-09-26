@@ -27,8 +27,10 @@
     $height: 32px;
     $fontSize: 14px;
     $borderRadius: 4px;
-    $borderColor: #999;
-    $borderColorHover:#666;
+    $borderColor: #2C3E50;
+    $borderColorHover: #33cc99;
+    $borderColorFocus: #33cc99;
+    $fontColor: #2C3E50;
 
     * {
         box-sizing: border-box;
@@ -36,18 +38,24 @@
 
     .reef-input {
         font-size: $fontSize;
+
         & > input {
+            display: inline-block;
+            border: 1px solid $borderColor;
             height: $height;
             font-size: inherit;
             padding: 0 8px;
-            border-width: 1px;
-            border-color: $borderColor;
+            color: $fontColor;
             border-radius: $borderRadius;
-            &:hover{
+            outline: none;
+            transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.335, 1);
+
+            &:hover {
                 border-color: $borderColorHover;
             }
-            &:focus{
-                border-color:rgba(0,40,100,0.3)
+
+            &:focus {
+                border-color: $borderColorFocus
             }
         }
 

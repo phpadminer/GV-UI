@@ -1,5 +1,5 @@
 <template>
-    <svg class="icon" v-if="name">
+    <svg class="icon" v-if="name" :fill="fill">
         <use :xlink:href="`#reef-i-${name}`"></use>
     </svg>
 </template>
@@ -10,11 +10,14 @@
         props:{
             name:{
                 type:String,
+            },
+            fill:{
+                type:String,
             }
         }
     }
 </script>
-<style>
+<style lang="scss" scoped>
     .icon {
         width: 1em;
         height: 1em;
