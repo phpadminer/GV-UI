@@ -20,7 +20,7 @@ describe('Button', () => {
         });
         vm.$mount();
         let useElement = vm.$el.querySelector('use');
-        expect(useElement.getAttribute("xlink:href")).to.eq("#gv-i-correct");
+        expect(useElement.getAttribute("xlink:href")).to.eq("#reef-i-correct");
         vm.$destroy();
     });
 });
