@@ -8,8 +8,8 @@ module.exports = function (config) {
             }
         },
         files: [
-            'dist/**/test.*.js',
-            'dist/**/test.*.css'
+            'dist/**/*.test.js',
+            'dist/**/*.test.css'
         ],
         exclude: [],
         preprocessors: {},
