@@ -1,17 +1,17 @@
 <template>
-    <div class="gv-group-button">
+    <div class="reef-group-button">
         <slot></slot>
     </div>
 </template>
 
 <script>
     export default {
-        name: "gv-group-button",
+        name: "reef-group-button",
         mounted() {
             for(let node of this.$el.children){
                 let nodeName = node.nodeName.toLowerCase();
                 if(nodeName !== 'button'){
-                    console.warn(`gv-group-button的子元素需要的是button,你所给的是${nodeName}`);
+                    console.warn(`reef-group-button的子元素需要的是button,你所给的是${nodeName}`);
                 }
             }
         }
@@ -19,11 +19,11 @@
 </script>
 
 <style scoped lang="scss">
-    .gv-group-button {
+    .reef-group-button {
         display: inline-flex;
         vertical-align: middle;
 
-        > .gv-button {
+        > .reef-button {
             border-radius: 0;
             margin-left: -1px;
 

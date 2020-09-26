@@ -1,7 +1,7 @@
 <template>
-    <button class="gv-button" :class="{[`icon-${iconPosition}`]:true}" @click="$emit('click')">
-        <gv-icon :name="icon" v-if="icon && !loading"></gv-icon>
-        <gv-icon class="loading" name="loading" v-if="loading"></gv-icon>
+    <button class="reef-button" :class="{[`icon-${iconPosition}`]:true}" @click="$emit('click')">
+        <reef-icon :name="icon" v-if="icon && !loading"></reef-icon>
+        <reef-icon class="loading" name="loading" v-if="loading"></reef-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -10,7 +10,7 @@
 <script>
     import Icon from "./icon"
     export default {
-        name:"gv-button",
+        name:"reef-button",
         props: {
             icon: {
                 type: String,
@@ -28,7 +28,7 @@
             }
         },
         components:{
-            "gv-icon":Icon
+            "reef-icon":Icon
         },
 
     };
@@ -43,7 +43,7 @@
             transform: rotate(360deg);
         }
     }
-    .gv-button {
+    .reef-button {
         font-size: var(--font-size);
         height: var(--button-height);
         padding: 0 1em;

@@ -1,12 +1,12 @@
 <template>
     <svg class="icon" v-if="name">
-        <use :xlink:href="`#gv-i-${name}`"></use>
+        <use :xlink:href="`#reef-i-${name}`"></use>
     </svg>
 </template>
 <script>
     import "./svg"
     export default {
-        name:"gv-icon",
+        name:"reef-icon",
         props:{
             name:{
                 type:String,

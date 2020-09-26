@@ -1,6 +1,6 @@
-# GV-UI --- 一个基于Vue开发的UI框架
+# reef-UI --- 一个基于Vue开发的UI框架
 
-[![Build Status](https://travis-ci.org/phpadminer/GV-UI.svg?branch=master)](https://travis-ci.org/phpadminer/GV-UI)
+[![Build Status](https://travis-ci.org/phpadminer/reef-UI.svg?branch=master)](https://travis-ci.org/phpadminer/reef-UI)
 
 ## 安装
 

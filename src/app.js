@@ -4,10 +4,10 @@ import Icon from "./icon";
 import GroupButton from "./group-button";
 import Input from "./input";
 
-Vue.component('gv-button', Button);
-Vue.component('gv-icon', Icon);
-Vue.component('gv-group-button', GroupButton);
-Vue.component('gv-input', Input);
+Vue.component('reef-button', Button);
+Vue.component('reef-icon', Icon);
+Vue.component('reef-group-button', GroupButton);
+Vue.component('reef-input', Input);
 new Vue({
     el: "#app",
     data() {

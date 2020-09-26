@@ -1,12 +1,12 @@
 <template>
-    <div class="gv-input">
+    <div class="reef-input">
         <input :value="value" type="text"/>
     </div>
 </template>
 
 <script>
     export default {
-        name: "gv-input",
+        name: "reef-input",
         props: {
             value: {
                 type: String
@@ -34,7 +34,7 @@
         box-sizing: border-box;
     }
 
-    .gv-input {
+    .reef-input {
         font-size: $fontSize;
         & > input {
             height: $height;
