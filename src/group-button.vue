@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: "group-button",
+        name: "gv-group-button",
         mounted() {
             for(let node of this.$el.children){
                 let nodeName = node.nodeName.toLowerCase();

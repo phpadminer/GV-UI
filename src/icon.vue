@@ -4,7 +4,9 @@
     </svg>
 </template>
 <script>
+    import "./svg"
     export default {
+        name:"gv-icon",
         props:{
             name:{
                 type:String,
