@@ -1,5 +1,5 @@
 <template>
-    <svg class="icon" v-if="name" :fill="fill">
+    <svg class="icon" v-if="name" :style="iconFill" >
         <use :xlink:href="`#reef-i-${name}`"></use>
     </svg>
 </template>
@@ -13,6 +13,15 @@
             },
             fill:{
                 type:String,
+            }
+        },
+        computed:{
+            iconFill(){
+                if(this.fill) {
+                    return {
+                        fill:this.fill,
+                    }
+                }
             }
         }
     }

@@ -71,6 +71,20 @@ describe('Button', () => {
             let svgElement = vm.$el.querySelector('svg');
             expect(getComputedStyle(svgElement).order).to.eq("2");
         });
+        it('type为primary时,背景色为#16A085,字体颜色为white.', () => {
+            // 必须将button挂载在一个元素下面 不然order会为空
+            const divElement = document.createElement('div');
+            document.body.appendChild(divElement);
+            vm = new Constructor({
+                propsData: {
+                    type: "primary",
+                }
+            });
+            vm.$mount(divElement);
+            let btnElement = vm.$el;
+            expect(getComputedStyle(btnElement).backgroundColor).to.eq("rgb(22, 160, 133)");
+            expect(getComputedStyle(btnElement).color).to.eq("rgb(255, 255, 255)");
+        });
         afterEach(() => {
             vm.$destroy();
         });
