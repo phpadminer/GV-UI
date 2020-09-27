@@ -84,50 +84,19 @@ describe('Input', () => {
     describe('测试事件', () => {
         const Constructor = Vue.extend(Input);
         let vm;
-        it("测试input事件.", () => {
-            vm = new Constructor({});
-            vm.$mount();
-            let callback = sinon.fake();
-            let event = new Event('input');
-            let inputElement = vm.$el.querySelector('input');
-            vm.$on('input', callback);
-            inputElement.dispatchEvent(event);
-            expect(callback).to.have.been.calledWith(event);
-
+        it("测试input/input/focus/blur事件.", () => {
+            ['change','input','focus','blur'].forEach((eventName)=>{
+                vm = new Constructor({});
+                vm.$mount();
+                let callback = sinon.fake();
+                let event = new Event(eventName);
+                let inputElement = vm.$el.querySelector('input');
+                vm.$on(eventName, callback);
+                inputElement.dispatchEvent(event);
+                expect(callback).to.have.been.calledWith(event);
+            })
         });
-        it("测试change事件.", () => {
-            vm = new Constructor({});
-            vm.$mount();
-            let callback = sinon.fake();
-            let event = new Event('change');
-            let inputElement = vm.$el.querySelector('input');
-            vm.$on('change', callback);
-            inputElement.dispatchEvent(event);
-            expect(callback).to.have.been.calledWith(event);
 
-        });
-        it("测试focus事件.", () => {
-            vm = new Constructor({});
-            vm.$mount();
-            let callback = sinon.fake();
-            let event = new Event('focus');
-            let inputElement = vm.$el.querySelector('input');
-            vm.$on('focus', callback);
-            inputElement.dispatchEvent(event);
-            expect(callback).to.have.been.calledWith(event);
-
-        });
-        it("测试blur事件.", () => {
-            vm = new Constructor({});
-            vm.$mount();
-            let callback = sinon.fake();
-            let event = new Event('blur');
-            let inputElement = vm.$el.querySelector('input');
-            vm.$on('blur', callback);
-            inputElement.dispatchEvent(event);
-            expect(callback).to.have.been.calledWith(event);
-
-        });
         afterEach(() => {
             vm.$destroy();
         });
