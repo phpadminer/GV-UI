@@ -1,12 +1,13 @@
 <template>
     <div class="reef-input">
-        <span class="input-label">{{label}}</span>
+        <span class="input-label" v-if="label">{{label}}</span>
         <input :disabled="disabled" :readOnly="readOnly" :class="{[`input-${type}`]:true}" :value="value" type="text"/>
-        <span class="input-validator-info " :class="{[`input-validator-info-${type}`]:true}">{{validatorInfo}}</span>
+        <reef-icon :name="iconType" :class="iconTypeFill"></reef-icon><span class="input-validator-info " :class="{[`input-validator-info-${type}`]:true}">{{validatorInfo}}</span>
     </div>
 </template>
 
 <script>
+    import Icon from "./icon";
     export default {
         name: "reef-input",
         props: {
@@ -26,6 +27,25 @@
             disabled:Boolean,
             readOnly:Boolean,
             validatorInfo:String
+        },
+        computed:{
+            iconType(){
+                if(['warning','success','error'].indexOf(this.type)>-1){
+                    return this.type
+                }else{
+                    return 'info'
+                }
+            },
+            iconTypeFill(){
+                if(['warning','success','error'].indexOf(this.type)>-1){
+                    return `input-validator-icon-${this.type}`
+                }else{
+                    return `input-validator-icon-info`
+                }
+            }
+        },
+        components:{
+            "reef-icon":Icon
         }
     };
 </script>
@@ -66,6 +86,7 @@
 
     .reef-input {
         font-size: $fontSize;
+        color:$fontColor;
         display: inline-flex;
         align-items: center;
         margin: 1em 0 ;
@@ -137,9 +158,24 @@
                 color: $SUN-FLOWER;
             }
             &.input-validator-info-normal{
-                color: $WET-ASPHALT;
+                color: $PETER-RIVER;
             }
 
+        }
+        &>svg{
+            margin-left:0.5em ;
+            &.input-validator-icon-info{
+                fill: $PETER-RIVER
+            }
+            &.input-validator-icon-error{
+                fill: $POMEGRANATE;
+            }
+            &.input-validator-icon-success{
+                fill: $EMERALD;
+            }
+            &.input-validator-icon-warning{
+                fill: $SUN-FLOWER;
+            }
         }
 
 

@@ -27,6 +27,9 @@
     }
 </script>
 <style lang="scss" scoped>
+    svg{
+        vertical-align: middle;
+    }
     .icon {
         width: 1em;
         height: 1em;
