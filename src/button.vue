@@ -1,5 +1,5 @@
 <template>
-    <button class="reef-button" :class="{[`btn-${type}`]:true,[`icon-${iconPosition}`]:true}" @click="$emit('click')">
+    <button class="reef-button" :disabled="disabled" :class="{[`btn-${type}`]:true,[`icon-${iconPosition}`]:true}" @click="$emit('click')">
         <reef-icon :fill="fill" :name="icon" v-if="icon && !loading"></reef-icon>
         <reef-icon :fill="fill" class="loading" name="loading" v-if="loading"></reef-icon>
         <div class="content">
@@ -28,6 +28,10 @@
                     return ['left', 'right'].indexOf(value) > -1;
                 }
             },
+            disabled:{
+                type:Boolean,
+                default:false
+            },
             loading: {
                 type: Boolean,
                 default: false
@@ -38,7 +42,7 @@
         },
         computed: {
             fill() {
-                if (this.type && this.type.toLowerCase() !== 'normal') {
+                if ((this.type && this.type.toLowerCase() !== 'normal') || (this.type && this.disabled)) {
                     return 'white';
                 }
             }
@@ -116,7 +120,7 @@
     .reef-button {
         font-size: $font-size;
         height: $button-height;
-        padding: 0.5em 1em;
+        padding: 1em;
         border-radius: $border-radius;
         border: 1px solid $border-color;
         display: inline-flex;
@@ -173,6 +177,7 @@
             color: $button-color-normal
         }
 
+
         &:not(.btn-normal):hover {
             border-color: transparent;
             cursor: pointer;
@@ -182,7 +187,18 @@
             cursor: pointer;
 
         }
-
+        &[disabled]{
+            background-color:$CLOUDS ;
+            color:rgba(255, 255, 255, 0.75);
+            border-color: transparent;
+            cursor: not-allowed;
+        }
+        &[disabled]:hover{
+            background-color:$CLOUDS ;
+            border-color: transparent;
+            color:white;
+            cursor: not-allowed;
+        }
         &:active {
             background-color: $button-active-bg;
         }

@@ -85,6 +85,19 @@ describe('Button', () => {
             expect(getComputedStyle(btnElement).backgroundColor).to.eq("rgb(22, 160, 133)");
             expect(getComputedStyle(btnElement).color).to.eq("rgb(255, 255, 255)");
         });
+        it('disabled为true时,cursor为no-allowed.', () => {
+            // 必须将button挂载在一个元素下面 不然order会为空
+            const divElement = document.createElement('div');
+            document.body.appendChild(divElement);
+            vm = new Constructor({
+                propsData: {
+                    disabled: true,
+                }
+            });
+            vm.$mount(divElement);
+            let btnElement = vm.$el;
+            expect(getComputedStyle(btnElement).cursor).to.eq("not-allowed");
+        });
         afterEach(() => {
             vm.$destroy();
         });

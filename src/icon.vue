@@ -17,6 +17,7 @@
         },
         computed:{
             iconFill(){
+                console.log(this.fill);
                 if(this.fill) {
                     return {
                         fill:this.fill,
