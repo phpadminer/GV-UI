@@ -14,6 +14,11 @@ new Vue({
         return {
             loading: true,
         };
+    },
+    methods:{
+        on_input(e){
+            console.log(e);
+        }
     }
 });
 
