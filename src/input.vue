@@ -2,10 +2,10 @@
     <div class="reef-input">
         <span class="input-label" v-if="label">{{label}}</span>
         <input :disabled="disabled" :readOnly="readOnly" :class="{[`input-${type}`]:true}" :value="value" type="text"
-               @input="$emit('input',$event)"
-               @focus="$emit('focus',$event)"
-               @change="$emit('change',$event)"
-               @blur="$emit('blur',$event)"
+               @input="$emit('input',$event.target.value)"
+               @focus="$emit('focus',$event.target.value)"
+               @change="$emit('change',$event.target.value)"
+               @blur="$emit('blur',$event.target.value)"
         />
         <reef-icon :name="iconType"  :class="iconTypeFill" v-if="validatorInfo"></reef-icon><span class="input-validator-info" :class="{[`input-validator-info-${type}`]:true}" v-if="validatorInfo">{{validatorInfo}}</span>
     </div>

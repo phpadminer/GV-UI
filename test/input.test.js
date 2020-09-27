@@ -75,8 +75,6 @@ describe('Input', () => {
             expect(spanElement).to.be.exist;
             expect(svgElement).to.be.exist;
         });
-
-
         afterEach(() => {
             vm.$destroy();
         });
@@ -85,18 +83,22 @@ describe('Input', () => {
         const Constructor = Vue.extend(Input);
         let vm;
         it("测试input/input/focus/blur事件.", () => {
-            ['change','input','focus','blur'].forEach((eventName)=>{
+            ['change', 'input', 'focus', 'blur'].forEach((eventName) => {
                 vm = new Constructor({});
                 vm.$mount();
                 let callback = sinon.fake();
                 let event = new Event(eventName);
                 let inputElement = vm.$el.querySelector('input');
                 vm.$on(eventName, callback);
+                Object.defineProperty(event, 'target', {
+                    value: {
+                        value: 'test',
+                    }
+                });
                 inputElement.dispatchEvent(event);
-                expect(callback).to.have.been.calledWith(event);
-            })
+                expect(callback).to.have.been.calledWith('test');
+            });
         });
-
         afterEach(() => {
             vm.$destroy();
         });

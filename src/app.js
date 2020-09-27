@@ -13,6 +13,7 @@ new Vue({
     data() {
         return {
             loading: true,
+            message:'normal'
         };
     },
     methods:{
