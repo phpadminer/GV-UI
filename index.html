@@ -119,7 +119,6 @@
             normal
         </reef-button>
         <reef-button :disabled="true" icon="setting" icon-position="left" :loading="loading">
-
             disabled
         </reef-button>
 
@@ -141,12 +140,12 @@
         <reef-icon name="setting" fill="#123456" ></reef-icon>
     </div>
     <div class="group">
-        <reef-input label="用户名" value="normal"></reef-input>
-        <reef-input label="用户名" type="error" value="error"></reef-input>
-        <reef-input label="用户名" type="success" value="success"></reef-input>
-        <reef-input label="用户名" type="warning" value="warning"></reef-input>
-        <reef-input label="用户名" value="disabled" :disabled="true"></reef-input>
-        <reef-input label="用户名" value="readonly" :read-only="true"></reef-input>
+        <reef-input label="用户名" value="normal" validator-info="error"></reef-input>
+        <reef-input label="用户名" type="error" value="error" validator-info="error"></reef-input>
+        <reef-input label="用户名" type="success" value="success" validator-info="error"></reef-input>
+        <reef-input label="用户名" type="warning" value="warning" validator-info="error"></reef-input>
+        <reef-input label="用户名" value="disabled" :disabled="true" validator-info="error"></reef-input>
+        <reef-input label="用户名" value="readonly" :read-only="true" validator-info="error"></reef-input>
     </div>
 
 

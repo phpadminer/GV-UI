@@ -2,6 +2,7 @@
     <div class="reef-input">
         <span class="input-label">{{label}}</span>
         <input :disabled="disabled" :readOnly="readOnly" :class="{[`input-${type}`]:true}" :value="value" type="text"/>
+        <span class="input-validator-info " :class="{[`input-validator-info-${type}`]:true}">{{validatorInfo}}</span>
     </div>
 </template>
 
@@ -23,7 +24,8 @@
                 type:String
             },
             disabled:Boolean,
-            readOnly:Boolean
+            readOnly:Boolean,
+            validatorInfo:String
         }
     };
 </script>
@@ -120,8 +122,24 @@
             }
 
         }
-        & > .input-label{
+        & > span.input-label{
             margin-right: 0.5em;
+        }
+        & > span.input-validator-info{
+            margin-left: 0.5em;
+            &.input-validator-info-error{
+               color: $POMEGRANATE;
+            }
+            &.input-validator-info-success{
+                color: $EMERALD;
+            }
+            &.input-validator-info-warning{
+                color: $SUN-FLOWER;
+            }
+            &.input-validator-info-normal{
+                color: $WET-ASPHALT;
+            }
+
         }
 
 
