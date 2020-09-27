@@ -2,7 +2,7 @@
     <div class="reef-input">
         <span class="input-label" v-if="label">{{label}}</span>
         <input :disabled="disabled" :readOnly="readOnly" :class="{[`input-${type}`]:true}" :value="value" type="text"/>
-        <reef-icon :name="iconType" :class="iconTypeFill"></reef-icon><span class="input-validator-info " :class="{[`input-validator-info-${type}`]:true}">{{validatorInfo}}</span>
+        <reef-icon :name="iconType"  :class="iconTypeFill" v-if="validatorInfo"></reef-icon><span class="input-validator-info" :class="{[`input-validator-info-${type}`]:true}" v-if="validatorInfo">{{validatorInfo}}</span>
     </div>
 </template>
 

@@ -63,6 +63,19 @@ describe('Input', () => {
             let inputElement = vm.$el.querySelector('input');
             expect(inputElement.readOnly).to.be.true;
         });
+        it('可以设置validatorInfo', () => {
+            vm = new Constructor({
+                propsData: {
+                    "validatorInfo": 'error'
+                }
+            });
+            vm.$mount();
+            let spanElement = vm.$el.querySelector('.input-validator-info');
+            let svgElement = vm.$el.querySelector('svg');
+            expect(spanElement).to.be.exist;
+            expect(svgElement).to.be.exist;
+        });
+
 
         afterEach(() => {
             vm.$destroy();
