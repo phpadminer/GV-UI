@@ -12,6 +12,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             margin: 20px;
         }
@@ -30,14 +31,42 @@
             --border-radius: 4px;
             --color: #2C3E50;
             --border-color: #2C3E50;
-            --border-color-hover:#33cc99;
+            --border-color-hover: #33cc99;
         }
 
     </style>
     <style>
-        .group{
+        .group {
             margin: 20px;
         }
+
+        .group-border {
+            border: 1px solid var(--border-color)
+        }
+
+        .group-border .col {
+            /*border:1px solid red;*/
+        }
+
+        .group-border .col div {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin: 1px 0;
+        }
+
+        .group-border .col:nth-child(even) div {
+            width: 100%;
+            background-color: rgba(46, 204, 113, 1);
+        }
+
+        .group-border .col:nth-child(odd) div {
+            width: 100%;
+            background-color: rgba(46, 204, 113, 0.5);
+        }
+
     </style>
 </head>
 <body>
@@ -88,7 +117,7 @@
         <reef-button type="default" icon="setting" icon-position="right" :loading="loading">
             default
         </reef-button>
-        <reef-button  icon="setting" icon-position="right" :loading="loading">
+        <reef-button icon="setting" icon-position="right" :loading="loading">
             normal
         </reef-button>
         <reef-button :disabled="true" icon="setting" icon-position="right" :loading="loading">
@@ -115,7 +144,7 @@
         <reef-button type="default" icon="setting" icon-position="left" :loading="loading">
             default
         </reef-button>
-        <reef-button  icon="setting" icon-position="left" :loading="loading">
+        <reef-button icon="setting" icon-position="left" :loading="loading">
             normal
         </reef-button>
         <reef-button :disabled="true" icon="setting" icon-position="left" :loading="loading">
@@ -123,21 +152,21 @@
         </reef-button>
 
     </div>
-   <div class="group">
-       <reef-group-button>
-           <reef-button icon="left">
-               上一页
-           </reef-button>
-           <reef-button>
-               更多
-           </reef-button>
-           <reef-button icon="right" icon-position="right">
-               下一页
-           </reef-button>
-       </reef-group-button>
-   </div>
     <div class="group">
-        <reef-icon name="setting" fill="#123456" ></reef-icon>
+        <reef-group-button>
+            <reef-button icon="left">
+                上一页
+            </reef-button>
+            <reef-button>
+                更多
+            </reef-button>
+            <reef-button icon="right" icon-position="right">
+                下一页
+            </reef-button>
+        </reef-group-button>
+    </div>
+    <div class="group">
+        <reef-icon name="setting" fill="#123456"></reef-icon>
     </div>
     <div class="group">
         <reef-input label="用户名" v-model="message" validator-info="error"></reef-input>
@@ -146,6 +175,116 @@
         <reef-input label="用户名" type="warning" value="warning" validator-info="warning"></reef-input>
         <reef-input label="用户名" value="disabled" :disabled="true" validator-info="disabled"></reef-input>
         <reef-input label="用户名" value="readonly" :read-only="true" validator-info="readonly"></reef-input>
+    </div>
+    <div class="group group-border ">
+        <reef-row>
+            <reef-col span="12">
+                <div>col-span-12</div>
+            </reef-col>
+            <reef-col span="12">
+                <div>col-span-12</div>
+            </reef-col>
+        </reef-row>
+        <reef-row>
+            <reef-col span="8">
+                <div>col-span-8</div>
+            </reef-col>
+            <reef-col span="8">
+                <div>col-span-8</div>
+            </reef-col>
+            <reef-col span="8">
+                <div>col-span-8</div>
+            </reef-col>
+        </reef-row>
+        <reef-row>
+            <reef-col span="6">
+                <div>col-span-6</div>
+            </reef-col>
+            <reef-col span="6">
+                <div>col-span-6</div>
+            </reef-col>
+            <reef-col span="6">
+                <div>col-span-6</div>
+            </reef-col>
+            <reef-col span="6">
+                <div>col-span-6</div>
+            </reef-col>
+        </reef-row>
+        <reef-row>
+            <reef-col span="2">
+                <div>col-span-2</div>
+            </reef-col>
+            <reef-col span="22">
+                <div>col-span-22</div>
+            </reef-col>
+        </reef-row>
+    </div>
+
+    <div class="group group-border ">
+        <reef-row gutter="10">
+            <reef-col span="12">
+                <div>col-span-12</div>
+            </reef-col>
+            <reef-col span="10" offset="2">
+                <div>col-span-10 col-offset-10</div>
+            </reef-col>
+        </reef-row>
+        <reef-row gutter="10">
+            <reef-col span="8" offset="8">
+                <div>col-span-8 col-offset-8</div>
+            </reef-col>
+            <reef-col span="8">
+                <div>col-span-8</div>
+            </reef-col>
+        </reef-row>
+        <reef-row gutter="10">
+            <reef-col span="6">
+                <div>col-span-6</div>
+            </reef-col>
+            <reef-col span="6" offset="6">
+                <div>col-span-6 col-offset-6</div>
+            </reef-col>
+        </reef-row>
+        <reef-row gutter="10">
+            <reef-col span="4">
+                <div>22</div>
+            </reef-col>
+            <reef-col span="2" offset="2">
+                <div> 11</div>
+            </reef-col><div></div>
+            <reef-col span="4" offset="4">
+                <div>col-offset-4</div>
+            </reef-col>
+            <reef-col span="4" offset="4">
+                <div>col-offset-4</div>
+            </reef-col>
+        </reef-row>
+    </div>
+
+    <div class="group group-border  ">
+        <reef-row gutter="10">
+            <reef-col span="12">
+                <div>col-span-12</div>
+            </reef-col>
+            <reef-col span="12">
+                <div>col-span-12</div>
+            </reef-col>
+        </reef-row>
+        <reef-row gutter="10">
+            <reef-col span="8"><div>col-span-8</div></reef-col>
+            <reef-col span="8"><div>col-span-8</div></reef-col>
+            <reef-col span="8"><div>col-span-8</div></reef-col>
+        </reef-row>
+        <reef-row gutter="10">
+            <reef-col span="6"><div>col-span-6</div></reef-col>
+            <reef-col span="6"><div>col-span-6</div></reef-col>
+            <reef-col span="6"><div>col-span-6</div></reef-col>
+            <reef-col span="6"><div>col-span-6</div></reef-col>
+        </reef-row>
+        <reef-row gutter="10">
+            <reef-col span="2"><div>col-span-2</div></reef-col>
+            <reef-col span="22"><div>col-span-22</div></reef-col>
+        </reef-row>
     </div>
 
 
