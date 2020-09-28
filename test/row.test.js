@@ -32,6 +32,7 @@ describe('Row', () => {
                 expect(window.getComputedStyle(vm.$el.querySelector('.row')).marginRight).to.eq('-11px');
                 expect(window.getComputedStyle(vm.$el.querySelectorAll('.col')[0]).paddingRight).to.eq('11px');
                 expect(window.getComputedStyle(vm.$el.querySelectorAll('.col')[1]).paddingLeft).to.eq('11px');
+                vm.$destroy()
                 done();
             }, 0);
 
