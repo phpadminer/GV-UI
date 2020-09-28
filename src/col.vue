@@ -36,7 +36,6 @@
 
 <style scoped lang="scss">
     .col {
-        width: 100%;
     }
 
     $col-prefix: 'col-span';

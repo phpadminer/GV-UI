@@ -14,7 +14,7 @@ describe('Row', () => {
     describe('测试属性', () => {
         let divElement = document.createElement('div');
         document.body.appendChild(divElement);
-        let vm
+        let vm;
         it('可以使用gutter', (done) => {
             Vue.component('reef-row', Row);
             Vue.component('reef-col', Col);
@@ -38,29 +38,27 @@ describe('Row', () => {
             }, 0);
 
         });
-        it('如果没有设置align属性，则只有一个row类名',()=>{
-            const Constructor =  Vue.extend(Row);
+        it('如果没有设置align属性，则只有一个row类名', () => {
+            const Constructor = Vue.extend(Row);
             vm = new Constructor({
-                propsData:{
-                }
+                propsData: {}
             });
             vm.$mount(divElement);
             expect(vm.$el.classList.length).to.eq(1);
         });
-        it('设置align属性，如果是right，那么应该会有一个align-right类名',()=>{
-            const Constructor =  Vue.extend(Row);
+        it('设置align属性，如果是right，那么应该会有一个align-right类名', () => {
+            const Constructor = Vue.extend(Row);
             vm = new Constructor({
-                propsData:{
-                    align:"right"
+                propsData: {
+                    align: "right"
                 }
             });
             vm.$mount(divElement);
             expect(vm.$el.classList.contains('align-right')).to.be.true;
         });
-        afterEach(()=>{
+        afterEach(() => {
             vm.$destroy();
-
-        })
+        });
 
     });
 
