@@ -1,5 +1,5 @@
 <template>
-    <div class="row" :style="gutterStyle">
+    <div class="row" :style="gutterStyle" :class="alignClass">
         <slot></slot>
     </div>
 </template>
@@ -8,7 +8,13 @@
     export default {
         name: "reef-row",
         props: {
-            gutter: [String, Number]
+            gutter: [String, Number],
+            align:{
+             type:String,
+             validator(align){
+                 return align && ['left','center','right'].includes(align)
+             }
+            }
         },
 
         computed: {
@@ -18,6 +24,10 @@
                     marginLeft: `-${gutter / 2}px`,
                     marginRight: `-${gutter / 2}px`,
                 };
+            },
+            alignClass(){
+                let {align} = this;
+                return align?[`align-${align}`]:[]
             }
         },
         mounted() {
@@ -31,5 +41,14 @@
 <style scoped lang="scss">
     .row {
         display: flex;
+        &.align-right{
+            justify-content: flex-end;
+        }
+        &.align-left{
+            justify-content: flex-start;
+        }
+        &.align-center{
+            justify-content: center;
+        }
     }
 </style>
