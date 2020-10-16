@@ -9,7 +9,8 @@
         name: "reef-col",
         props: {
             span: [String, Number],
-            offset: [String, Number]
+            offset: [String, Number],
+
         },
         data() {
             return {
@@ -35,8 +36,6 @@
 </script>
 
 <style scoped lang="scss">
-    .col {
-    }
 
     $col-prefix: 'col-span';
     @for $n from 1 through 24 {
